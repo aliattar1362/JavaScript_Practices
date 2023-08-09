@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Click the below button to demonstrate the promp box.</p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+
+    <script type="text/javascript">
+       /* A cookie recipe calls for the following ingredients:
+       • 1.5 cups of sugar 
+       • 1 cup of butter 
+       • 2.75 cups of flour. 
+       The recipe produces 48 cookies with this amount of the ingredients. Write a program that asks the user how many cookies he or she wants to make, then displays the number of cups of each ingredient needed for the specified number of cookies.  */
+
+       function main() {
+        let cockieNumber = parseInt(prompt("Enter the amount of cookies you want:"))
+        const sugarPerCookie = 1.5/48;
+        const butterPerCookie = 1/48;
+        const flourPerCookie = 2.75/48;
+        const digit = 2;
+
+        let sugar = sugarPerCookie * cockieNumber;
+        sugar = sugar.toFixed(digit);
+
+        let butter = butterPerCookie * cockieNumber;
+        butter = butter.toFixed(digit);
+
+        let flour = flourPerCookie* cockieNumber;
+        flour = flour.toFixed(digit);
+
+        let message = `For making ${cockieNumber} cookies, we need ${sugar} cups of sugar, we need ${butter} cups of butter, and we need ${flour} cups of flour.`;
+        
+        document.getElementById("output").innerHTML = message;
+       }
+    </script>
+</body>
+</html>
