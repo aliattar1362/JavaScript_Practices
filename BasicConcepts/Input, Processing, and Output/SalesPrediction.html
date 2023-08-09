@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Enter the projected amount of total sales: <input type="text" id="myText" value="">
+        <button onclick="main()">Try it</button>
+    </p> 
+
+    <p id="demo"></p>
+
+    <script type="text/javascript">
+        ///A company has determined that its annual profit is typically 23 percent of total sales. Write a program that asks the user to enter the projected amount of total sales, then displays the profit that will be made from that amount.Hint: Use the value 0.23 to represent 23 percent.///
+
+        const annualProfit = 0.23;
+
+        function main() {
+            let totalSale = document.getElementById("myText").value;
+            let profit = totalSale * annualProfit;
+            let message = `The total profit will be: ${profit.toFixed(2)}.`;
+            document.getElementById("demo").innerHTML = message;
+        }
+
+    </script>
+</body>
+</html>
