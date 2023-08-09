@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Enter the mass of the object in pounds: <input type="text" id="mytext" value="">
+        <button onclick="main()">Try it</button>
+    </p>
+    <p id="demo"></p>
+
+    <script type="text/javascript">
+    /// One pound is equivalent to 0.454 kilograms. Write a program that asks the user to enter the mass of an object in pounds and then calculates and displays the mass of the object in kilograms.
+    ///
+
+    function main() {
+        const poundToKilograms = 0.454;
+
+        let massInPounds = document.getElementById("mytext").value;
+        let massInKilograms = massInPounds * poundToKilograms;
+        let message = "The mass object is " + massInKilograms.toFixed(2) + " (kg)";
+        document.getElementById("demo").innerHTML = message;
+    }
+    </script>
+</body>
+</html>
