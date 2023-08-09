@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Click the below button to demonstrate the promp box.</p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+
+    <script type="text/javascript">
+        // Write a program that asks the user to enter the amount of a purchase and the desired number of payment instalments. The program should add 5 percent to the amount to get the total purchase amount, and then divide it by the desired number of instalments, then display messages telling the user the total amount of the purchase and how much each instalment will cost.
+        function main() {
+            const INTEREST_RATE = 0.05;
+            const DECIMAL_NUMBER = 2;
+
+            let totalPurchase = parseInt(prompt("Enter the amount of a purchase:"));
+            let instalmentNumbers = parseInt(prompt("Enter the desired number of payment instalments:"))
+            
+            let total = totalPurchase + INTEREST_RATE;
+            total = total.toFixed(DECIMAL_NUMBER);
+
+            let instalmentPayment = total/instalmentNumbers;
+            instalmentPayment = instalmentPayment.toFixed(DECIMAL_NUMBER);
+
+            let message = "The total amount of the purchase is " + total + "$, and the amount of every instalment is " + instalmentPayment + "$.";
+            document.getElementById("output").innerHTML = message;
+        }
+
+    </script>
+    
+</body>
+</html>
