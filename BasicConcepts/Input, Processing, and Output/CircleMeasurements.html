@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Click the below button to demonstrate the promp box.</p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+
+    <script text="type/javascript">
+        // Write a program that asks the user to enter the radius of a circle. The program should calculate and display the area and circumference of the circle using πr2 for the area and 2πr for the circumference. Hint: You can either use 3.14159 as the value of pi (π), or add the statement.
+        function main() {
+            let radius = parseInt(prompt("Enter the circle's radius in cm:"));
+            const pi = Math.PI;
+            const digit = 2;
+
+            let area = pi * Math.pow(radius, 2);
+            area = area.toFixed(digit);
+
+            let circumference = 2 * pi * radius;
+            circumference = circumference.toFixed(digit)
+
+            message = "The area of circle is " + area + " (cm<sup>2</sup>) and the circumference is " + circumference + " (cm)." 
+            
+            document.getElementById("output").innerHTML = message;
+        }
+    </script>
+</body>
+</html>
