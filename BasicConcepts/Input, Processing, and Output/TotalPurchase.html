@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="input">Click the below button to demonstrate the promp box.</p>
+    <button onclick="main()">try it</button>
+    <p id="output"></p>
+
+    <script type="text/javascript">
+        /// A customer in a store is purchasing five items. Write a program that asks for the price of each item, then displays the subtotal of the sale, the amount of sales tax, and the total. Assume the sales tax is 7 percent.///
+        function main() {
+            const tax = 0.07;
+            let sum = 0;
+            const numberOfItems = 5;
+            const showDecimal = 2;
+
+            for (let i = 1; i <=numberOfItems; i++) {
+                let value = prompt("Enter the price for item " + i)
+                // Convert the value type to int
+                value = parseInt(value)
+                sum += value;
+            };
+
+            let salesTax = (sum * tax);
+            let totalPayment = (sum + salesTax);
+            
+            let message = "The total purchasing is " + sum + "$. The sales tax is " + salesTax.toFixed(showDecimal) + "$ , and the total payment is " + totalPayment.toFixed(showDecimal)+ "$.";
+
+            document.getElementById("output").innerHTML = message;
+        }
+    </script>
+</body>
+</html>
