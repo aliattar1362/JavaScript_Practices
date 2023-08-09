@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Click the below button to demonstrate the promp box.</p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+    <script type="text/javascript">
+    /*
+        A car's miles-per-gallon (MPG) can be calculated with the following formula: MPG = (Miles driven / Gallons of gas used).
+        Write a program that asks the user for the number of miles driven and the gallons of gas used. It should calculate the car's MPG and display the result. 
+    */
+        function main() {
+            let numberOfMiles = parseInt(prompt("Enter the number of miles driven:"))
+            let gallonsOfGas = parseInt(prompt("Enter the gallons of gas used:"))
+            const DIGITS = 2;
+
+            let mpg = numberOfMiles/gallonsOfGas;
+
+            let message = "The car's MPG is " + mpg.toFixed(DIGITS) + ".";
+            document.getElementById("output").innerHTML = message;
+        }
+    </script>
+</body>
+</html>
