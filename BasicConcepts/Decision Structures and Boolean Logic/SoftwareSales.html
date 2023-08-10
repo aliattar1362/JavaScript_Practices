@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        This program asks you to enter the number of packages purchased. Then it displays the amount of the discount (if any) and the total amount of the purchase after the discount.
+        <br><br>
+        <em>Click on below box to run the program.</em>
+    </p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+
+    <script type="text/javascript">
+        /* A software company sells a package that retails for $99. Quantity discounts are given according to the following table:
+        Quantity Discount
+            10–19 10%
+            20–49 20%
+            50–99 30%
+            100 or more 40%
+         Write a program that asks the user to enter the number of packages purchased. The program should then display the amount of the discount (if any) and the total amount of the purchase after the discount. */
+
+        function main() {
+           let packageNumber = parseInt(prompt("Enter the number of packages purchased."))
+
+           let [discountPercentage, finalPrice] = discount(packageNumber);
+           let message = `You earned ${discountPercentage}% discount for buying these numbers of books. The total price is ${finalPrice.toFixed(2)}$.`;
+
+           document.getElementById("output").innerHTML = message;
+        };
+
+        function discount(number) {
+            const RetailsPrice = 99;
+            let discountPercentage;
+            let realPrice;
+            let discount;
+            let finalPrice;
+
+            if (number < 10) 
+            {
+                discountPercentage = 0;
+                finalPrice = RetailsPrice;
+            }
+
+            else 
+            {
+                if (number >= 10 && number < 20)discountPercentage = 10;
+                else if (number >= 20 && number < 50) discountPercentage = 20;
+                else if (number >= 50 && number < 100) discountPercentage = 30;
+                else discountPercentage = 40;
+
+                realPrice = number * RetailsPrice;
+                discount = realPrice * (discountPercentage/100);
+                finalPrice = realPrice - discount;
+            }
+
+            return [discountPercentage, finalPrice];
+        };
+
+    </script>
+</body>
+</html>
