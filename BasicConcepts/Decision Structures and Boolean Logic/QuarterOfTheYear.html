@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Click below box to run the program</p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+    <script type="text/javascript">
+        // Write a program that asks the user for a month as a number between 1 and 12. The program should display a message indicating whether the month is in the first quarter, the second quarter, the third quarter, or the fourth quarter of the year. Following are the guidelines: • If	the	user enters either	1,	2,	or	3,	the	month	is	in	the	first quarter. •If the user	enters	a number between 4 and 6, the month	is	in the	second quarter. •If	the	number is either 7,	8, or 9, the month is in the third quarter. •If	the	month is between 10	and	12,	the	month is in	the	fourth quarter. •If	the	number is not	between	1 and 12, the program should display an	error.
+        function main() {
+            let monthNumber = parseInt(prompt("Enter a month as a number between 1 and 12:"))
+            if (monthNumber <= 3) message = "The month is in the first quarter."
+            else if (monthNumber <= 6) message = "The month is in the second quarter."
+            else if (monthNumber <= 9) message = "The month is in the third quarter."
+            else if (monthNumber <= 12) message = "The month is in the forth quarter."
+            else message = "Error! You entered the wrong number."
+
+            document.getElementById("output").innerHTML = message;
+        }
+    </script>
+</body>
+</html>
