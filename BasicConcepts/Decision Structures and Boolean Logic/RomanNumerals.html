@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Click below box to run the program.</p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+
+    <script type="text/javascript">
+        // Write a program that prompts the user to enter a number within the range of 1 through 10. The program should display the Roman numeral version of that number. If the number is outside the range of 1 through 10, the program should display an error message.
+        function main(){
+            let getInput = parseInt(prompt("Enter a number from 1 to 10:"));
+            if (getInput === 1) state = "I";
+            else if (getInput === 2) state = "II.";
+            else if (getInput === 3) state = "III.";
+            else if (getInput === 4) state = "IV.";
+            else if (getInput === 5) state = "V.";
+            else if (getInput === 6) state = "VI.";
+            else if (getInput === 7) state = "VII.";
+            else if (getInput === 8) state = "VIII.";
+            else if (getInput === 9) state = "IX.";
+            else if (getInput === 10) state = "X.";
+            else state = "Error!"
+
+            message = "The input number is: " + state 
+            document.getElementById("output").innerHTML = message;
+        }
+    </script>
+</body>
+</html>
