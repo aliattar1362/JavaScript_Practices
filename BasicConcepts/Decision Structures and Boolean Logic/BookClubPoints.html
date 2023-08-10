@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        This program asks you to enter the number of books you have purchased this month, then displays the number of points awarded.<br><br>
+        <em>Click bellow box to run the program.</em>
+    </p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+
+    <script type="text/javascript">
+        // Serendipity Booksellers has a book club that awards points to its customers based on the number of books purchased each month. The points are awarded as follows: 
+        // • If a customer purchases 0 books,he or she	earns 0	points.
+        // • If a customer purchases 2 books, he or she earns 5 points.
+        // • If a customer purchases 4 books, he or she earns 15 points.
+        // • If a customer purchases 6 books, he or she earns 30 points.
+        // • If a customer purchases 8 or more books, he or she earns 60 points.
+        // Write a program that asks the user to enter the number of books that he or she has purchased this month, then displays the number of points awarded.
+        function main() {
+            let purchasedBooks = parseInt(prompt("Enter the number of books you have purchased this month:"));
+            let earndePoints = bookAward(purchasedBooks);
+            let message = `You earned ${earndePoints} points acccoring the number of books you purchase.`
+            document.getElementById("output").innerHTML = message;
+        }
+        
+        function bookAward(number) {
+            let point = 0;
+            if (number >= 8) point = 60;
+            else if (number >= 6) point = 30;
+            else if (number >= 4) point = 15;
+            else if (number >= 2) point = 5;
+            else point = 0;
+
+            return point
+        }
+
+    </script>
+</body>
+</html>
