@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hot Dog Cookout Calculator</h1>
+    <p>
+        This program asks you to enter the number of people attending the cookout and the number of hot dogs each person will be given. Then it displays the following details:
+        <ul>
+            <li>The	minimum	number of packages of hot	dogs required</li>
+            <li>The minimum number of packages of hot dog buns required</li>
+            <li>The number of hot dogs that will be left over</li>
+            <li>The number of hot dog buns that will be left over</li>
+
+        </ul>
+         <em>Assume hot dogs come in packages of 10, and hot dog buns come in packages of 8.</em>
+        </br></br>
+        
+        Click on below box to run the program.
+    </p>
+
+    <button onclick="main()">Try it</button>
+
+    <p id="output"></p>
+
+    <script>
+        //Assume hot dogs come in packages of 10, and hot dog buns come in packages of 8. Write a program that calculates the number of packages of hot dogs and the number of packages of hot dog buns needed for a cookout, with the minimum amount of leftovers. The program should ask the user for the number of people attending the cookout and the number of hot dogs each person will be given. The program should display the following details:
+        // •	 The	minimum	number	of	packages	of	hot	dogs	required
+        // •	The minimum number of packages of hot dog buns required
+        // •	The number of hot dogs that will be left over
+        // •	The number of hot dog buns that will be left over
+    
+        function main() {
+            let peopleNumber = parseInt(prompt("Enter the number of people attending the cookout:"));
+            let hotdogsPerPeople = parseInt(prompt("Enter the number of hot dogs each person will be given:"));
+
+            const [requiredHotdogPackage, requiredBunsPackage, leftoverHotdogPackage, leftoverBunsPackage] = cookout(peopleNumber, hotdogsPerPeople);
+
+            let message = "For a coockout with  " + peopleNumber + " people whom be given " + hotdogsPerPeople + " hot dogs, " + requiredHotdogPackage + " hot dogs packeges, and  " + requiredBunsPackage + " hot dogs buns packages are required. Moreover, " + leftoverHotdogPackage + " hot dogs, and  " + leftoverBunsPackage + " hot dogs buns will be leftover."
+
+            document.getElementById("output").innerHTML = message;
+        }
+
+        function cookout(peopleNumber, hotdogsPerPeople) {
+            const hotdogPackage = 10;
+            const bunsPackage = 8;
+            let totalSandwiches = peopleNumber * hotdogsPerPeople;
+
+            let requiredHotdogPackage = Math.ceil(totalSandwiches / hotdogPackage);
+            let requiredBunsPackage = Math.ceil(totalSandwiches / bunsPackage);
+            let leftoverHotdogPackage = (requiredHotdogPackage * hotdogPackage) - totalSandwiches;
+            let leftoverBunsPackage = (requiredBunsPackage * bunsPackage) - totalSandwiches;
+
+            return [requiredHotdogPackage, requiredBunsPackage, leftoverHotdogPackage, leftoverBunsPackage];
+        }
+    </script>
+    
+</body>
+</html>
