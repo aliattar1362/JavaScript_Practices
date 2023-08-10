@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Money Counting Game</h1>
+    <p>
+        This program is a change-counting game that asks you to enter the number of coins required to make exactly one dollar. <br><br>
+        click below box to run the program.
+    </p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+    <script type="text/javascript">
+        // Create a change-counting game that gets the user to enter the number of coins required to make exactly one dollar. The program should prompt the user to enter the number of pennies, nickels, dimes, and quarters. If the total value of the coins entered is equal to one dollar, the program should congratulate the user for winning the game. Otherwise, the program should display a message indicating whether the amount entered was more than or less than one dollar.
+
+        function main() {
+            let penniesNumber = parseInt(prompt("Enter the number of pennies:"));
+            let nickelsNumber = parseInt(prompt("Enter the number of nickels:"));
+            let dimesNumber = parseInt(prompt("Enter the number of dimes:"));
+            let quartersNumber = parseInt(prompt("Enter the number of quarters:"));
+
+            let message = changeCounting(penniesNumber, nickelsNumber, dimesNumber, quartersNumber);
+            document.getElementById("output").innerHTML = message;
+        };
+
+        function changeCounting (penniesNumber, nickelsNumber, dimesNumber, quartersNumber) {
+            const penny = 0.01; // 1 cent
+            const nickel = 0.05; // 5 cent
+            const dime = 0.1; // 10 cent
+            const quarter = 0.25; // 25 cent
+
+            let total = (penny * penniesNumber) + (nickel * nickelsNumber) + (dime * dimesNumber) + (quarter * quartersNumber);
+            
+            return (total === 1) ? "Congratulations! You won the game!": "The accumulate of these coins is " + parseFloat(total).toFixed(2) + "$.";
+        };
+    </script>
+</body>
+</html>
