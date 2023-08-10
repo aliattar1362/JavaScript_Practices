@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        This program asks the users to enter their points for both tests and the final exam. Then it shows the final score and grade of the course.
+        </br></br>
+        Click on below box to run the program.
+    </p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+
+    <script type="text/javascript">
+        // A class has two tests worth 25 points each along with a main exam worth 50 points. For a student to pass the class, they must obtain an overall score of at least 50 points, and must obtain at least 25 points in the main exam. If a student’s total score is less than 50 or they obtain less than 25 points in the main exam, they receive a grade of “Fail”. Otherwise, their grade is as follows: If they get more than 80, they get a grade of “Distinction”. 50–59 = “Pass”.If they get less than 80 but more than 60, they get a “Credit” grade.If they get less than 60, they get a ”Pass” grade. 
+        // Write a program that prompts the user to enter their points for both tests and the exam and converts the values to integers. The program should first check if the points entered for the tests and exam are valid. If any of the test scores are not between 0 and 25, or the exam score is not between 0 and 50, the program should display an error message. Otherwise, the program should display the total points and the grade. 
+        function main() {
+            let totalGrade = 0;
+            
+            for (let i = 1; i <=2; i++) {
+                let testGrade = parseInt(prompt("Enter the grade for test" + i + ":"));
+                if (testGrade >= 0 && testGrade <= 25) {
+                    totalGrade += testGrade;
+                }
+                else {
+                    --i;
+                    alert("Error! the test grade must be between 0 and 25.");
+                };
+            };
+
+            let gradeCheck = false;
+            
+            while (gradeCheck === false) {
+                let examGrade = parseInt(prompt("Enter the grade for exam:"));
+
+                if (examGrade >= 0 && examGrade <= 50) {
+                    gradeCheck = true;
+                    totalGrade += examGrade;
+                }
+                else {
+                    alert("Error! the exam grade must be between 0 and 50.");
+                 };
+            };
+            
+            if (totalGrade >= 80) {
+                gradeDisplay = "Distinction";
+            }
+            else if (totalGrade >= 60) {
+                gradeDisplay = "Credit";
+            }
+            else if (totalGrade >= 50) {
+                gradeDisplay = "Pass";
+            }
+            else {
+                gradeDisplay = "Fail";
+            };
+
+            let message = "The total point is " + totalGrade + " and the final grade is " + gradeDisplay + ".";
+            document.getElementById("output").innerHTML = message;
+        };
+    </script>
+</body>
+</html>
