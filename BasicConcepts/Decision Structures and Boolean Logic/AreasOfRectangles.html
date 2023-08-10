@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <P>Click below box to run the program</P>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+    <script type="text/javascript">
+        // The area of a rectangle is the rectangle’s length times its width. Write a program that asks for the length and width of two rectangles. The program should tell the user which rectangle has the greater area, or if the areas are the same.
+        function main() {
+            let length1 = parseInt(prompt("Enter the length of rectangular 1:"));
+            let width1 = parseInt(prompt("Enter the width of rectangular 1:"));
+            let area1 = length1 * width1;
+
+            let length2 = parseInt(prompt("Enter the length of rectangular 2:"));
+            let width2 = parseInt(prompt("Enter the width of rectangular 2:"));
+            let area2 = length2 * width2;
+
+            if (area1 > area2)  message = "The area of first rectangle is larger than the second rectangle."
+
+            else if (area1 === area2) message = "The area of both rectangles are same."
+
+            else message = "The area of the second rectangle is larger than the first rectangle."
+
+            document.getElementById("output").innerHTML = message;
+        };
+    </script>
+</body>
+</html>
