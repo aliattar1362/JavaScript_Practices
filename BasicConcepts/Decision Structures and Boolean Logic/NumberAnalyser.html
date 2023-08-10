@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        This program asks the user to enter an integer. It displays “Positive” if the number is greater than 0, “Negative” if the number is less than 0, and “Zero” if the number is equal to 0. Then, it displays “Even” if the number is even, and “Odd” if the number is odd. <br><br>
+        Click on below box to run the program.</p>
+    <button onClick="main()">Try it</button>
+    <p id="output"></p>
+    <script type="text/javascript">
+        function main() {
+            let intNumber = parseInt(prompt("Enter an integer:"));
+            let remainder = intNumber % 2;
+            let state1;
+            let state2;
+
+            if (intNumber > 0 && remainder === 0) state1 = "Positive", state2 = "Even";
+            if (intNumber > 0 && remainder !== 0) state1 = "Positive", state2 = "Odd";
+            if (intNumber === 0 && remainder === 0) state1 = "Zero", state2 = "Even";
+            if (intNumber === 0 && remainder !== 0) state1 = "Zero", state2 = "Odd";
+            if (intNumber < 0 && remainder === 0) state1 = "Negative", state2 = "Even";
+            if (intNumber < 0 && remainder !== 0) state1 = "Negative", state2 = "Odd";
+
+            let message = intNumber + " is " + state1 + " and " + state2 + ".";
+            document.getElementById("output").innerHTML = message;
+        };
+    </script>
+</body>
+</html>
