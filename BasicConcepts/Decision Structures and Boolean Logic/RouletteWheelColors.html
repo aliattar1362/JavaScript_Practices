@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Roulette Wheel Colors</h1>
+    <p>
+        This program asks you to enter a pocket number and displays whether the pocket is green, red, or black. It display an error message if you enter a number that is outside the range of 0 through 36.
+    </br></br>
+    Click below box to run the program.
+    </p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+
+    <script type="text/javascript">
+        // On a roulette wheel, the pockets are numbered from 0 to 36. The colors of the pockets are as follows:
+        // • Pocket	0 is green.
+        // • For pockets 1 through 10, the odd-numbered pockets are red and the even-numbered pockets are black.
+        // • For pockets 11 through 18, the odd-numbered pockets are black and the even-numbered pockets are red.
+        //	• For pockets 19 through 28, the odd-numbered pockets are red and the even-numbered pockets are black.
+        // •	For pockets 29 through 36, the odd-numbered pockets are black and the even-numbered pockets are red.
+        // Write a program that asks the user to enter a pocket number and displays whether the pocket is green, red, or black. The program should display an error message if the user enters a number that is outside the range of 0 through 36.
+
+        function main() {
+            let packetNumber = parseInt(prompt("Enter a pocket number of a roulette wheel:"))
+
+            let message = rouletteWheel(packetNumber);
+            document.getElementById("output").innerHTML = message;
+        }
+
+        function rouletteWheel (number) {
+            if (number === 0) return "Green!";
+            else if (number >= 1 && number <= 10) return (number % 2 === 0) ? "black":"red";
+            else if (number >= 11 && number <= 18) return (number % 2 === 0) ? "red":"black";
+            else if (number >= 19 && number <= 28) return (number % 2 === 0) ? "black":"red";
+            else if (number >= 29 && number <= 36) return (number % 2 === 0) ? "red":"black";
+            else return "Error! The number should be between 0 and 36.";
+        }
+    </script>
+</body>
+</html>
