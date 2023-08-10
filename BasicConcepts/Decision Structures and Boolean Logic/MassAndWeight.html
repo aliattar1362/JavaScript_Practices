@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Click below box to run the program.</p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+
+    <script type="text/javascript">
+        // Scientists measure an object’s mass in kilograms and its weight in newtons. If you know the amount of mass of an object in kilograms, you can calculate its weight in newtons with the following formula: weight = mass * 9.8. 
+        // Write a program that asks the user to enter an object’s mass, then calculates its weight. If the object weighs more than 500 newtons, display a message indicating that it is too heavy. If the object weighs less than 100 newtons, display a message indicating that it is too light.
+        
+        function main(){
+            let mass = parseInt(prompt("Enter the object's mass."))
+            const g = 9.8;
+            let weight = mass * g;
+
+            if (weight > 500) state = "too heavy."
+            if (weight < 100) state = "too light."
+
+            let message = "The object is " + state
+            document.getElementById("output").innerHTML = message;
+        };
+    </script>
+</body>
+</html>
