@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=scr, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Swapping Variables</h1>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+
+    <script type="text/javascript">
+        function main() {
+            let a = prompt("Enter the first string: ");
+            let b = prompt("Enter the second string: ");
+
+            [a, b] = swappingVariables(a, b);
+
+            let message = "The a and b has been swapped and now a is: " + a + " and b is: " + b +"."
+            document.getElementById("output").innerHTML = message;
+        }
+
+        function swappingVariables(a, b) {
+            return [b, a];
+        }
+    </script>
+</body>
+</html>
