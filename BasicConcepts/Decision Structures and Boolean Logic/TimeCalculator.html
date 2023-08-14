@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        This program asks you to enter a number of seconds, and displays the date in days, hours, minutes, and seconds.
+        <br><br>
+        <em>Click on below box to run the program.</em>
+    </p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+
+    <script type="text/javascript">
+        // Write a program that asks the user to enter a number of seconds and works as follows:
+        // •	 There	are	60	seconds	in	a	minute.	If	the	number	of	seconds	entered	by	the	user	is	greater than or equal to 60, the program should convert the number of seconds to minutes and seconds.
+        // •	There are 3,600 seconds in an hour. If the number of seconds entered by the user is greater than or equal to 3,600, the program should convert the number of seconds to hours, minutes, and seconds.
+        // •	There are 86,400 seconds in a day. If the number of seconds entered by the user is greater than or equal to 86,400, the program should convert the number of seconds to days, hours, minutes, and seconds.
+        function main() {
+           let secondsNumber = parseInt(prompt("Enter the number of seconds:"))
+           let message;
+
+           let [day, hour, minute, second] = timeCalculator(secondsNumber);
+           console.log(typeof (day));
+            if (day === 0 && hour === 0 && minute === 0 && seconds !== 0) message = `The time is ${second} seconds.`;
+            else if (day === 0 && hour === 0) message = `The time is ${minute} minutes and, ${second} seconds.`;
+            else if (day === 0) message = `The time is ${hour} hours, ${minute} minutes and, ${second} seconds.`;
+            else  message = `The time is ${day} days, ${hour} hours, ${minute} minutes and, ${second} seconds.`;
+
+           document.getElementById("output").innerHTML = message;
+        };
+
+        function timeCalculator(number) {
+            const oneMin = 60;// 1 Mintue = 60 Seconds
+            const oneHour = 3600;
+            const oneDay = 86400;
+            let indicator;
+            let day = 0;
+            let hour = 0;
+            let minute = 0;
+            let second = 0;
+            
+            if (number < oneMin) {
+                second = number;
+            } 
+            else if (number >= oneMin && number < oneHour) {
+                minute = number / oneMin;
+                second = number %  oneMin;
+            }
+            else if (number >= oneHour && number < oneDay) {
+                hour = number / oneHour;
+                minute = (number % oneHour) /  oneMin;
+                second = (number % oneHour) %  oneMin;
+            }
+            else {
+                day = number / oneDay;
+                hour = (number % oneDay) / oneHour;
+                minute = ((number % oneDay) % oneHour) /  oneMin;
+                second = ((number % oneDay) % oneHour) %  oneMin;
+            };
+
+            day = Math.floor(day);
+            hour = Math.floor(hour);
+            minute = Math.floor(minute);
+            second = Math.floor(second);
+            return ([day, hour, minute, second]);
+        };
+
+    </script>
+</body>
+</html>
