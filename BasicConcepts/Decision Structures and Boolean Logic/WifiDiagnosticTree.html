@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p> This program uses the flowchart to lead a person through the steps of fixing a bad Wi-Fi connection. <br><br>
+    <em>Click on below button to run the program.</em></p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+    <script type="text/javascript">
+
+        function main() {
+            alert (`Reboot the computer and try to connect.`);
+            let answer = prompt("Did that fix the problem?");
+
+            if (answer === "no") {
+                alert (`Reboot the router and try to connect.`);
+                let answer = prompt("Did that fix the problem?");
+
+                if (answer === "no") {
+                    alert (`Make sure the cables between the router and modem are plugged in firmly.`);
+                    let answer = prompt("Did that fix the problem?"); 
+
+                    if (answer === "no") {
+                        alert (`Move the router to a new location.`);
+                        let answer = prompt("Did that fix the problem?");
+
+                        if (answer === "no") {
+                            alert (`Get a new router.`)
+                        }
+                    }                  
+                }
+            }
+        };
+    </script>
+</body>
+</html>
