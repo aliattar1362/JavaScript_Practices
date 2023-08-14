@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        This program asks you to enter your weight and height, then	display	your BMI. It, also, displays a message indicating whether your weight is optimal weight, is underweight, or is overweight.
+        <br><br>
+
+        <em>Click below box to run the program.</em>
+    </p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+
+    <script type="text/javascript">
+        // ask	the	user	to	enter	his	or	her	weight	and	height,	then	display	the	user’s	BMI.	The	program should also display a message indicating whether the person has optimal weight, is underweight, or is overweight.
+        function main() {
+            let weight = parseFloat(prompt("Enter the weight in kg:"));
+            let height = parseFloat(prompt("Enter the height in cm:"))
+            let [bmiIndex, bmiDescription] = bmi(weight, height);
+
+            let message = `The BMI index is ${bmiIndex} that means you are ${bmiDescription}.`;
+            document.getElementById("output").innerHTML = message;
+        }
+
+        function bmi(weight, height) {
+            let bmiIndex = (weight / ((height / 100) ** 2)).toFixed(2);
+            let bmiDescription;
+
+            if (bmiIndex >= 18.5 && bmiIndex <= 25) bmiDescription = "optimal";
+            else if (bmiIndex < 18.5) bmiDescription = "underweight";
+            else bmiDescription = "overweight";
+
+            return [bmiIndex, bmiDescription];
+        }
+    </script>
+</body>
+</html>
