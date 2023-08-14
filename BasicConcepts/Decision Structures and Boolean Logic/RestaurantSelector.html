@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+    <script type="text/javascript">
+
+        function main() {
+            let index;
+            let resturants = ["Joe's Gourmet Burgers", "Main Street Pizza Company", "Corner Café", "Mama's Fine Italian", "The Chef's Kitchen"];
+
+            let isVegetarian = prompt("Is anyone in your party a vegetarian? (yes/no)");
+            if (isVegetarian === "yes") resturants = isVegetarianFunc(resturants);
+
+            let isVegan = prompt("Is anyone in your party a vegan? (yes/no)");
+            if (isVegan === "yes") resturants = isVeganFunc(resturants);
+
+            let isGlutenFree = prompt("Is anyone in your party gluten-free? (yes/no)");
+            if (isGlutenFree === "yes") resturants = isGlutenFreeFunc(resturants);
+            
+            let message = 'Here are your restaurant choices: </br> <ul>';
+            resturants.forEach(resturant => {
+                message += `<li> ${resturant} </li> </br>`;
+                console.log(resturant);
+            });
+
+            document.getElementById("output").innerHTML = message + '</ul>';
+        };
+
+        function isVegetarianFunc (array) {
+            if (array.includes("Joe's Gourmet Burgers")) {
+                array.splice(array.indexOf("Joe's Gourmet Burgers"), 1);
+                return array;
+            }
+        };
+
+        function isVeganFunc (array) {
+            if (array.includes("Joe's Gourmet Burgers"))
+                array.splice(array.indexOf("Joe's Gourmet Burgers"), 1);
+
+            if (array.includes("Main Street Pizza Company"))
+                array.splice(array.indexOf("Main Street Pizza Company"), 1);
+
+            if (array.includes("Mama's Fine Italian"))
+                array.splice(array.indexOf("Mama's Fine Italian"), 1);
+            return array;
+        };
+
+        function isGlutenFreeFunc (array) {
+            if (array.includes("Joe's Gourmet Burgers"))
+                array.splice(array.indexOf("Joe's Gourmet Burgers"), 1);
+            if (array.includes("Mama's Fine Italian"))
+                array.splice(array.indexOf("Mama's Fine Italian"), 1);
+            return array;
+        };
+
+    </script>
+    
+</body>
+</html>
