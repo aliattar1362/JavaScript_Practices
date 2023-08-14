@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        This program asks you to enter the weight of a package then displays the shipping charges.
+        <br><br>
+        <em>Click below box to run the program.</em>
+    </p>
+    <button onclick="main()">Try it</button>
+    <p id="output"></p>
+
+    <script type="text/javascript">
+        // The Fast Freight Shipping Company charges the following rates:
+        // Weight of Package                                Rate per Pound
+        // 2 pounds or less                                 $1.50
+        // Over 2 pounds but not more than 6 pounds         $3.00
+        // Over 6 pounds but not more than 10 pounds        $4.00
+        // Over 10 pounds                                   $4.75
+        
+        function main() {
+            let packageWeight = parseFloat(prompt("Enter the weight of a package in Pound:"));
+
+            let charge = shipping(packageWeight);
+            let message = `The shipping charge is ${charge}$ based on the weight of your package.`;
+
+            document.getElementById("output").innerHTML = message;
+        }
+
+        function shipping(weight) {
+            let charge;
+
+            if (weight <= 2) charge = 1.5;
+            else if (weight > 2 && weight <= 6) charge = 3;
+            else if (weight > 6 && weight <= 10) charge = 4;
+            else charge = 4.75;
+
+            return charge;
+        }
+    </script>
+</body>
+</html>
