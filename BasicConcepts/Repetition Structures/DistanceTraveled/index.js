@@ -13,28 +13,35 @@ function main() {
     let speed = parseFloat(prompt("What is the speed of the vehicle in mph? "));
     let duration = parseInt(prompt("How many hours has it traveled? "));
 
-    // Calculate hour and distance and send the data to display fucntion.
+    // Calculate hour and distance and send the data to display function.
     text = CalculateDistance(speed, duration);
 
     // Display the output table
     Display(text);
 }
 
-function CalculateDistance (speed, time) {
+function CalculateDistance(speed, time) {
     let output = '';
+    let padValue = 0;
 
     for (let i = 1; i <= time; i++) {
+        if (i * speed > 99 ) {
+            padValue = 10;
+        }
 
-        output += `${i}         ${i * speed}<br>`; 
+        else {
+            padValue = 10;
+        }
+        output += `${i}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;${(i * speed).toString().padStart(padValue)}<br>`;
     }
 
     return output;
 }
 
-function Display (text) {
-    let message = `
-    Hour            Distance Traveled
-    ---------------------------------`;
+function Display(text) {
+    let mainSpace = "&ensp;&emsp;&ensp;&emsp;";
+    let message = `Hour${mainSpace}Distance Traveled<br>
+    --------------------------------------<br>`;
 
     document.getElementById('output').innerHTML = message + text;
 }
